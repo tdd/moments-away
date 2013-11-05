@@ -36,19 +36,19 @@
   var target = mmt.duration().constructor.prototype;
 
   target.before = function before(ref) {
-    return moment(ref).subtract(this).toDate();
+    return mmt(ref).subtract(this).toDate();
   };
 
   target.after = function after(ref) {
-    return moment(ref).add(this).toDate();
+    return mmt(ref).add(this).toDate();
   };
 
   target.ago = function ago() {
-    return moment().subtract(this).toDate();
+    return mmt().subtract(this).toDate();
   };
 
   target.fromNow = function fromNow() {
-    return moment().add(this).toDate();
+    return mmt().add(this).toDate();
   };
 
   //***** Internal utilities *****
@@ -57,8 +57,9 @@
 
   function adjust(ref, op, str) {
     var m = str.match(/^\s*(\d+|\d*\.\d+)\s+([a-z]+)\s*$/i);
-    if (!m)
+    if (!m) {
       throw 'Invalid descriptor: ' + str + '.  Must be of the "NUMBER UNITS" form. See ' + MOMENT_DOC;
+    }
     return mmt(ref)[op](m[2], m[1]).toDate();
   }
 
