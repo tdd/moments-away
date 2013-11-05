@@ -12,11 +12,11 @@
   };
 
   String.prototype.ago = function ago() {
-    return adjust(new Date(), 'subtract', this);
+    return this.before(new Date());
   };
 
   String.prototype.fromNow = function fromNow() {
-    return adjust(new Date(), 'add', this);
+    return this.after(new Date());
   };
 
   //***** Number-based API *****
