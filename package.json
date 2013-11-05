@@ -1,0 +1,32 @@
+{
+  "name": "moment-duration",
+  "version": "0.0.1",
+  "description": "ActiveDuration-style wrappers based on moment.js",
+  "main": "moment-duration.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tdd/moment-duration.git"
+  },
+  "dependencies": {
+    "moment": ">= 2.0.0"
+  },
+  "devDependencies": {
+    "mocha": ">= 1.11.0",
+    "sinon": ">= 1.5.2"
+  },
+  "keywords": [
+    "date",
+    "moment",
+    "duration",
+    "dsl",
+    "time"
+  ],
+  "author": "Christophe Porteneuve <tdd@tddsworld.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tdd/moment-duration/issues"
+  }
+}
