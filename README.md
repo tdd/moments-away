@@ -136,7 +136,6 @@ This work is MIT licence.  Read the licence [here](https://github.com/tdd/moment
 To-do
 =====
 
-* Packagers wrapping (check Component, NuGet and others)
 * JS Test Coverage report
 * Provide GitHub pages
 * GitHub release (update package.json, tag as 0.1.0) & Formal announcement
