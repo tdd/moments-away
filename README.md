@@ -63,8 +63,8 @@ npm install --save moments-away
 
 Otherwise you can just pick up the [library source file](https://raw.github.com/tdd/moments-away/master/moments-away.js) (only 1.7KB uncompressed).
 
-ZOMG! You're extending native prototypes!
-=========================================
+ZOMG! :scream: You're extending native prototypes!
+==================================================
 
 Yes, I am.  This is necessary to achieve the level of expressiveness I was shooting for, and this does work across browsers.
 
