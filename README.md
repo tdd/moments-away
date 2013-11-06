@@ -1,11 +1,11 @@
-moment-duration
-===============
+moments-away
+============
 
-[![Build Status](https://travis-ci.org/tdd/moment-duration.png?branch=master)](https://travis-ci.org/tdd/moment-duration)
-[![Code Climate](https://codeclimate.com/github/tdd/moment-duration.png)](https://codeclimate.com/github/tdd/moment-duration)
-[![Dependency Status](https://gemnasium.com/tdd/moment-duration.png)](https://gemnasium.com/tdd/moment-duration)
+[![Build Status](https://travis-ci.org/tdd/moments-away.png?branch=master)](https://travis-ci.org/tdd/moments-away)
+[![Code Climate](https://codeclimate.com/github/tdd/moments-away.png)](https://codeclimate.com/github/tdd/moments-away)
+[![Dependency Status](https://gemnasium.com/tdd/moments-away.png)](https://gemnasium.com/tdd/moments-away)
 
-ActiveDuration-style wrappers based on moment.js
+Moment.js durations made easier, ActiveSupport-style.
 
 To-do
 =====
