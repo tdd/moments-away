@@ -1,14 +1,14 @@
 {
-  "name": "moment-duration",
+  "name": "moments-away",
   "version": "0.0.1",
-  "description": "ActiveDuration-style wrappers based on moment.js",
-  "main": "moment-duration.js",
+  "description": "Moment.js durations made easier, ActiveSupport-style.",
+  "main": "moments-away.js",
   "scripts": {
     "test": "mocha -R spec"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/tdd/moment-duration.git"
+    "url": "http://github.com/tdd/moments-away.git"
   },
   "dependencies": {
     "moment": ">= 2.0.0"
@@ -27,6 +27,6 @@
   "author": "Christophe Porteneuve <tdd@tddsworld.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tdd/moment-duration/issues"
+    "url": "https://github.com/tdd/moments-away/issues"
   }
 }
