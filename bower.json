@@ -1,0 +1,32 @@
+{
+  "name": "moments-away",
+  "main": "moments-away.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tdd/moments-away",
+  "authors": [
+    "Christophe Porteneuve <tdd@tddsworld.com>"
+  ],
+  "description": "Moment.js durations made easier, ActiveSupport-style.",
+  "keywords": [
+    "date",
+    "moment",
+    "duration",
+    "dsl",
+    "time"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "moment": ">= 2.0.0"
+  },
+  "devDependencies": {
+    "mocha": ">= 1.11.0",
+    "sinon": ">= 1.5.2"
+  }
+}
