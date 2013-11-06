@@ -1,0 +1,17 @@
+{
+  "name": "moments-away",
+  "repo": "tdd/moments-away",
+  "description": "Moment.js durations made easier, ActiveSupport-style.",
+  "main": "moments-away.js",
+  "version": "0.0.1",
+  "keywords": ["date", "moment", "duration", "dsl", "time"],
+  "dependencies": {
+    "moment/moment": ">= 2.0.0",
+  },
+  "development": {
+    "mocha": ">= 1.11.0",
+    "sinon": ">= 1.5.2"
+  },
+  "scripts": ["moments-away.js"],
+  "license": "MIT"
+}

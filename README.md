@@ -61,6 +61,18 @@ If you're using this in Node or installing through npm, just go with it:
 npm install --save moments-away
 ```
 
+[Bower](http://bower.io/) more your cup of tea?  Here you go:
+
+```
+bower install moments-away
+```
+
+Perhaps you favor TJ's [Component](http://component.io/)?  Not a problem:
+
+```
+component install tdd/moments-away
+```
+
 Otherwise you can just pick up the [library source file](https://raw.github.com/tdd/moments-away/master/moments-away.js) (only 1.7KB uncompressed).
 
 ZOMG! :scream: You're extending native prototypes!
