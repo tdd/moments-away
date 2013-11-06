@@ -6,11 +6,11 @@
   "version": "0.0.1",
   "keywords": ["date", "moment", "duration", "dsl", "time"],
   "dependencies": {
-    "moment/moment": ">= 2.0.0"
+    "component/moment": ">= 2.0.0"
   },
   "development": {
-    "mocha": ">= 1.11.0",
-    "sinon": ">= 1.5.2"
+    "visionmedia/mocha": ">= 1.11.0",
+    "techjacker/Sinon.JS": ">= 1.5.2"
   },
   "scripts": ["moments-away.js"],
   "license": "MIT"
