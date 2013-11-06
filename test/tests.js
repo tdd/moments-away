@@ -1,7 +1,7 @@
 var assert = require('assert');
 var mmt = require('moment');
 var sinon = require('sinon');
-require('../moments-away');
+require('../index');
 
 describe('String extensions', function() {
   it('should handle milliseconds', function() {

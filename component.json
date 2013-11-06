@@ -2,7 +2,7 @@
   "name": "moments-away",
   "repo": "tdd/moments-away",
   "description": "Moment.js durations made easier, ActiveSupport-style.",
-  "main": "moments-away.js",
+  "main": "lib/index.js",
   "version": "0.0.1",
   "keywords": ["date", "moment", "duration", "dsl", "time"],
   "dependencies": {
@@ -12,6 +12,6 @@
     "visionmedia/mocha": ">= 1.11.0",
     "techjacker/Sinon.JS": ">= 1.5.2"
   },
-  "scripts": ["moments-away.js"],
+  "scripts": ["lib/index.js"],
   "license": "MIT"
 }

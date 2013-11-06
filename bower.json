@@ -1,6 +1,6 @@
 {
   "name": "moments-away",
-  "main": "moments-away.js",
+  "main": "lib/index.js",
   "version": "0.0.1",
   "homepage": "https://github.com/tdd/moments-away",
   "authors": [

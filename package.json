@@ -2,9 +2,8 @@
   "name": "moments-away",
   "version": "0.0.1",
   "description": "Moment.js durations made easier, ActiveSupport-style.",
-  "main": "moments-away.js",
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "make test-coveralls"
   },
   "repository": {
     "type": "git",
@@ -15,7 +14,9 @@
   },
   "devDependencies": {
     "mocha": ">= 1.11.0",
-    "sinon": ">= 1.5.2"
+    "sinon": ">= 1.5.2",
+    "coveralls": "~2.3.0",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "keywords": [
     "date",
