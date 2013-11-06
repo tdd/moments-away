@@ -7,29 +7,32 @@ describe('String extensions', function() {
   it('should handle milliseconds', function() {
     var d = new Date();
     checkOffset('10 milliseconds'.after(d), d, 10);
+    checkOffset('10milliseconds'.after(d), d, 10);
+    checkOffset('10ms'.after(d), d, 10);
   });
 
   it('should handle seconds', function() {
     var d = new Date();
     checkOffset('10 seconds'.after(d), d, 10 * 1000);
-    checkOffset('0.5 seconds'.after(d), d, 500);
+    checkOffset('0.5s'.after(d), d, 500);
   });
 
   it('should handle minutes', function() {
     var d = new Date();
     checkOffset('10 minutes'.after(d), d, 10 * 60 * 1000);
-    checkOffset('0.25 minutes'.after(d), d, 15 * 1000);
+    checkOffset('0.25m'.after(d), d, 15 * 1000);
   });
 
   it('should handle hours', function() {
     var d = new Date();
     checkOffset('3 hours'.after(d), d, 3 * 60 * 60 * 1000);
-    checkOffset('0.05 hours'.after(d), d, 3 * 60 * 1000);
+    checkOffset('0.05h'.after(d), d, 3 * 60 * 1000);
   });
 
   it('should handle days', function() {
     var d = new Date();
     checkOffset('10 days'.after(d), d, 10 * 24 * 60 * 60 * 1000);
+    checkOffset('10d'.after(d), d, 10 * 24 * 60 * 60 * 1000);
     // moment.js rounds to the biggest lower integer amount of days from days up, so
     // 0.25 is 0, 1.5 is 1, etc.  No point testing floats, then!
   });
@@ -37,16 +40,19 @@ describe('String extensions', function() {
   it('should handle weeks', function() {
     var d = new Date();
     checkOffset('2 weeks'.after(d), d, 2 * 7 * 24 * 60 * 60 * 1000);
+    checkOffset('2w'.after(d), d, 2 * 7 * 24 * 60 * 60 * 1000);
   });
 
   it('should handle months', function() {
     var d = new Date(2012, 0, 15), d2 = new Date(2012, 3, 15);
     checkOffset('3 months'.after(d), d2);
+    checkOffset('3M'.after(d), d2);
   });
 
   it('should handle years', function() {
     var d = new Date(2012, 1, 15), d2 = new Date(2014, 1, 15);
     checkOffset('2 years'.after(d), d2);
+    checkOffset('2y'.after(d), d2);
   });
 
   it('should provide .before', function() {
@@ -80,34 +86,42 @@ describe('Number extensions', function() {
   describe('should provide Moment durations', function() {
     it('for milliseconds', function() {
       checkDuration((10).milliseconds(), 10, 'milliseconds');
+      checkDuration((1).millisecond(), 1, 'milliseconds');
     });
 
     it('for seconds', function() {
       checkDuration((5).seconds(), 5, 'seconds');
+      checkDuration((1).second(), 1, 'seconds');
     });
 
     it('for minutes', function() {
       checkDuration((42).minutes(), 42, 'minutes');
+      checkDuration((1).minute(), 1, 'minutes');
     });
 
     it('for hours', function() {
       checkDuration((3).hours(), 3, 'hours');
+      checkDuration((1).hour(), 1, 'hours');
     });
 
     it('for days', function() {
       checkDuration((7).days(), 7, 'days');
+      checkDuration((1).day(), 1, 'days');
     });
 
     it('for weeks', function() {
       checkDuration((9).weeks(), 9, 'weeks');
+      checkDuration((1).week(), 1, 'weeks');
     });
 
     it('for months', function() {
       checkDuration((11).months(), 11, 'months');
+      checkDuration((1).month(), 1, 'months');
     });
 
     it('for years', function() {
       checkDuration((51).years(), 51, 'years');
+      checkDuration((1).year(), 1, 'years');
     });
 
   });

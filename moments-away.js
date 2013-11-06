@@ -24,8 +24,9 @@
   var units = ['milliseconds', 'seconds', 'minutes', 'hours', 'days', 'weeks', 'months', 'years'];
   for (var index = 0, len = units.length; index < len; ++index) {
     /* jshint loopfunc: true */
-    (function(unit) {
-      Number.prototype[unit] = function toDuration() {
+    (function(units) {
+      var unit = units.slice(0, -1);
+      Number.prototype[units] = Number.prototype[unit] = function toDuration() {
         return mmt.duration(+this, unit);
       };
     })(units[index]);
@@ -56,7 +57,7 @@
   var MOMENT_DOC = 'http://momentjs.com/docs/#/manipulating/add/';
 
   function adjust(ref, op, str) {
-    var m = str.match(/^\s*(\d+|\d*\.\d+)\s+([a-z]+)\s*$/i);
+    var m = str.match(/^\s*(\d+|\d*\.\d+)\s*([a-z]+)\s*$/i);
     if (!m) {
       throw 'Invalid descriptor: ' + str + '.  Must be of the "NUMBER UNITS" form. See ' + MOMENT_DOC;
     }
