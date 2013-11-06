@@ -16,7 +16,7 @@ It provides a system of *durations* (e.g. “1 month”) that allow reliable off
 
 However, I favor another reading style when manipulating such things, mostly because I'm used to the ActiveSupport way of doing things (in Ruby/Rails).  In Moment, you'd so something like :
 
-```
+```js
 // The Moment way
 
 // Based on a specific date:
@@ -31,7 +31,7 @@ moment().subtract(2, 'weeks').toDate()  // "2 weeks ago"
 
 This is functionally great, but I like how ActiveSupport reads better, so I created this little library that builds on Moment (which you should have available, then) and adds some stuff.  Mirroring that exact Ruby syntax in JS is fairly convoluted and bulky memory-wise, so I went with something slightly different, but here it is.
 
-```
+```js
 // The Moments-Away way
 
 // Based on a specific date:
@@ -89,7 +89,7 @@ The string should start with a number, followed possibly by whitespace, followed
 
 If you have an existing number (variable, argument, etc.) that defines your base duration, using the `Number`-based API will feel smoother:
 
-```
+```js
 function setAuthCookie(sessionId) {
   // var expiry = (AUTH_EXPIRY_MONTHS + ' months').fromNow(); // Ugh
   var expiry = AUTH_EXPIRY_MONTHS.months().fromNow();         // Better
