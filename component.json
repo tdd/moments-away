@@ -6,7 +6,7 @@
   "version": "0.0.1",
   "keywords": ["date", "moment", "duration", "dsl", "time"],
   "dependencies": {
-    "moment/moment": ">= 2.0.0",
+    "moment/moment": ">= 2.0.0"
   },
   "development": {
     "mocha": ">= 1.11.0",
