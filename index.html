@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Moments-Away by tdd</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Moments-Away</h1>
+        <p>Moment.js durations made easier, ActiveSupport-style.</p>
+        <p class="view"><a href="https://github.com/tdd/moments-away">View the Project on GitHub <small>tdd/moments-away</small></a></p>
+        <ul>
+          <li><a href="https://github.com/tdd/moments-away/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tdd/moments-away/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tdd/moments-away">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="moments-away" class="anchor" href="#moments-away"><span class="octicon octicon-link"></span></a>moments-away</h1>
+
+<p><a href="https://travis-ci.org/tdd/moments-away"><img src="https://travis-ci.org/tdd/moments-away.png?branch=master" alt="Build Status"></a>
+<a href="https://coveralls.io/r/tdd/moments-away"><img src="https://coveralls.io/repos/tdd/moments-away/badge.png" alt="Coverage Status"></a>
+<a href="https://codeclimate.com/github/tdd/moments-away"><img src="https://codeclimate.com/github/tdd/moments-away.png" alt="Code Climate"></a>
+<a href="https://gemnasium.com/tdd/moments-away"><img src="https://gemnasium.com/tdd/moments-away.png" alt="Dependency Status"></a></p>
+
+<p>Moment.js durations made easier, ActiveSupport-style.</p>
+
+<h1>
+<a name="wut" class="anchor" href="#wut"><span class="octicon octicon-link"></span></a>Wut?</h1>
+
+<p><a href="http://momentjs.com/">Moment.js</a> is a great JS library for manipulating dates and times in just about every way possible.  If you do this kind of stuff, you should absolutely use Moment.</p>
+
+<p>It provides a system of <em>durations</em> (e.g. “1 month”) that allow reliable offsets between dates.  For instance, a month is a contextual notion: this could end up being anywhere from 28 to 31 days, not to mention the leap second thing we sometimes get at the end of the year.</p>
+
+<p>However, I favor another reading style when manipulating such things, mostly because I'm used to the ActiveSupport way of doing things (in Ruby/Rails).  In Moment, you'd so something like :</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// The Moment way</span>
+
+<span class="c1">// Based on a specific date:</span>
+<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="nx">moment</span><span class="p">(</span><span class="nx">d</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'months'</span><span class="p">).</span><span class="nx">toDate</span><span class="p">()</span> <span class="c1">// "3 months after d"</span>
+<span class="nx">moment</span><span class="p">(</span><span class="nx">d</span><span class="p">).</span><span class="nx">subtract</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'year'</span><span class="p">).</span><span class="nx">toDate</span><span class="p">()</span> <span class="c1">// "1 year before d"</span>
+
+<span class="c1">// Based on now:</span>
+<span class="nx">moment</span><span class="p">().</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'month'</span><span class="p">).</span><span class="nx">toDate</span><span class="p">()</span>  <span class="c1">// "1 month from now"</span>
+<span class="nx">moment</span><span class="p">().</span><span class="nx">subtract</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'weeks'</span><span class="p">).</span><span class="nx">toDate</span><span class="p">()</span>  <span class="c1">// "2 weeks ago"</span>
+</pre></div>
+
+<p>This is functionally great, but I like how ActiveSupport reads better, so I created this little library that builds on Moment (which you should have available, then) and adds some stuff.  Mirroring that exact Ruby syntax in JS is fairly convoluted and bulky memory-wise, so I went with something slightly different, but here it is.</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// The Moments-Away way</span>
+
+<span class="c1">// Based on a specific date:</span>
+<span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+<span class="s1">'3 months'</span><span class="p">.</span><span class="nx">after</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+<span class="s1">'1 year'</span><span class="p">.</span><span class="nx">before</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+
+<span class="c1">// Based on now:</span>
+<span class="s1">'1 month'</span><span class="p">.</span><span class="nx">fromNow</span><span class="p">()</span>
+<span class="s1">'2 weeks'</span><span class="p">.</span><span class="nx">ago</span><span class="p">()</span>
+
+<span class="c1">// Based on Numbers instead of strings:</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">months</span><span class="p">().</span><span class="nx">after</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">year</span><span class="p">().</span><span class="nx">before</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
+
+<span class="kd">var</span> <span class="nx">om</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">ow</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">om</span><span class="p">.</span><span class="nx">months</span><span class="p">().</span><span class="nx">fromNow</span><span class="p">()</span>
+<span class="nx">ow</span><span class="p">.</span><span class="nx">weeks</span><span class="p">().</span><span class="nx">ago</span><span class="p">()</span>
+</pre></div>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<p>If you're using this in Node or installing through npm, just go with it:</p>
+
+<pre><code>npm install --save moments-away
+</code></pre>
+
+<p><a href="http://bower.io/">Bower</a> more your cup of tea?  Here you go:</p>
+
+<pre><code>bower install moments-away
+</code></pre>
+
+<p>Perhaps you favor TJ's <a href="http://component.io/">Component</a>?  Not a problem:</p>
+
+<pre><code>component install tdd/moments-away
+</code></pre>
+
+<p>Otherwise you can just pick up the <a href="https://raw.github.com/tdd/moments-away/master/moments-away.js">library source file</a> (only 1.7KB uncompressed).</p>
+
+<h1>
+<a name="zomg-scream-youre-extending-native-prototypes" class="anchor" href="#zomg-scream-youre-extending-native-prototypes"><span class="octicon octicon-link"></span></a>ZOMG! <img class="emoji" title=":scream:" alt=":scream:" src="https://github.global.ssl.fastly.net/images/icons/emoji/scream.png" height="20" width="20" align="absmiddle"> You're extending native prototypes!</h1>
+
+<p>Yes, I am.  This is necessary to achieve the level of expressiveness I was shooting for, and this does work across browsers.</p>
+
+<p>If that looks too irksome for you, feel free to fork this and provide an alternative that uses, say, a global wrapper function over <code>String</code>s or <code>Number</code>s that returns the appropriate objects.</p>
+
+<h1>
+<a name="the-api" class="anchor" href="#the-api"><span class="octicon octicon-link"></span></a>The API</h1>
+
+<h2>
+<a name="string--or-number-based" class="anchor" href="#string--or-number-based"><span class="octicon octicon-link"></span></a><code>String</code>- or <code>Number</code>-based</h2>
+
+<p>Depending on what you're working with, it'll be smoother to use either a <code>String</code>- or <code>Number</code>-based API.</p>
+
+<p>You’ll usually work with strings for one-off duration specifications.  Loading the library automagically equips <code>String</code> with four new methods:</p>
+
+<ul>
+<li>
+<code>before(date)</code> returns a <code>Date</code> the precedes the <code>date</code> argument by the duration defined in the string.</li>
+<li>
+<code>after(date)</code> returns a <code>Date</code> the follows the <code>date</code> argument by the duration defined in the string.</li>
+<li>
+<code>ago()</code> returns a past <code>Date</code> with a distance defined in the string.</li>
+<li>
+<code>fromNow()</code> returns a future <code>Date</code> with a distance defined in the string.</li>
+</ul><p>The string should start with a number, followed possibly by whitespace, followed by one of the duration units recognized by <code>moment.duration</code> (this is every <code>Date</code> sub-unit from <code>milliseconds</code> to <code>years</code>, singular or plural, along with a few abbreviated forms, such as <code>ms</code>, <code>s</code> or <code>y</code>, for instance).  Surrounding whitespace is ignored.</p>
+
+<p>If you have an existing number (variable, argument, etc.) that defines your base duration, using the <code>Number</code>-based API will feel smoother:</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">function</span> <span class="nx">setAuthCookie</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// var expiry = (AUTH_EXPIRY_MONTHS + ' months').fromNow(); // Ugh</span>
+  <span class="kd">var</span> <span class="nx">expiry</span> <span class="o">=</span> <span class="nx">AUTH_EXPIRY_MONTHS</span><span class="p">.</span><span class="nx">months</span><span class="p">().</span><span class="nx">fromNow</span><span class="p">();</span>         <span class="c1">// Better</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">"authId="</span> <span class="o">+</span> <span class="nx">sessionId</span> <span class="o">+</span> <span class="s2">"; expires="</span> <span class="o">+</span> <span class="nx">expiry</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Loading the library automagically equips <code>Number</code> with new methods for every duration unit supported by <code>moment.duration</code>, using the long forms, singular or plural:</p>
+
+<ul>
+<li>
+<code>milliseconds()</code>, <code>millisecond()</code>
+</li>
+<li>…</li>
+<li>
+<code>years()</code>, <code>year()</code>
+</li>
+</ul><p>The abbreviated forms are not used: less readable, more prone to naming conflicts.</p>
+
+<p>These do not return numbers or strings, but actual Moment durations (which you could then use in regular Moment API calls), which remain contextual and will work at any later time, including on long-lived web pages.</p>
+
+<p>In order to make the API homogeneous, we also extend Moment durations with the same four methods as on <code>String</code>: <code>before(date)</code>, <code>after(date)</code>, <code>ago()</code> and <code>fromNow()</code>.</p>
+
+<h1>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h1>
+
+<p>You can report any issues or feature requests <a href="https://github.com/tdd/moments-away/issues">on GitHub</a>.</p>
+
+<p>Feel free to fork the repo, contribute and submit pull requests.  These must always come with updated tests.</p>
+
+<h1>
+<a name="licence" class="anchor" href="#licence"><span class="octicon octicon-link"></span></a>Licence</h1>
+
+<p>This work is MIT licence.  Read the licence <a href="https://github.com/tdd/moments-away/blob/master/LICENSE">here</a>.</p>
+
+<h1>
+<a name="to-do" class="anchor" href="#to-do"><span class="octicon octicon-link"></span></a>To-do</h1>
+
+<ul>
+<li>JS Test Coverage report</li>
+<li>Provide GitHub pages</li>
+<li>GitHub release (update package.json, tag as 0.1.0) &amp; Formal announcement</li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/tdd">tdd</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-43650325-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
