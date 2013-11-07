@@ -1,0 +1,4 @@
+node_modules
+lib-cov
+.coveralls.yml
+coverage.html
