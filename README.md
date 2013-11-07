@@ -133,8 +133,3 @@ Licence
 =======
 
 This work is MIT licence.  Read the licence [here](https://github.com/tdd/moments-away/blob/master/LICENSE).
-
-To-do
-=====
-
-* GitHub release (update package.json, tag as 0.1.0) & Formal announcement

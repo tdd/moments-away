@@ -3,7 +3,7 @@
   "repo": "tdd/moments-away",
   "description": "Moment.js durations made easier, ActiveSupport-style.",
   "main": "lib/index.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "keywords": ["date", "moment", "duration", "dsl", "time"],
   "dependencies": {
     "moment/moment": "*"

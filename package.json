@@ -1,6 +1,6 @@
 {
   "name": "moments-away",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Moment.js durations made easier, ActiveSupport-style.",
   "scripts": {
     "test": "make test",
