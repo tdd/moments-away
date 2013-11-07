@@ -55,6 +55,13 @@ describe('String extensions', function() {
     checkOffset('2y'.after(d), d2);
   });
 
+  it('should throw on invalid format', function() {
+    assert.throws(function() { 'gabuzomeu'.fromNow(); }, (/Invalid descriptor/));
+    assert.throws(function() { 'one month'.fromNow(); }, (/Invalid descriptor/));
+    assert.throws(function() { '2'.fromNow(); },         (/Invalid descriptor/));
+    assert.throws(function() { 'weeks 2'.fromNow(); },   (/Invalid descriptor/));
+  });
+
   it('should provide .before', function() {
     var d = new Date(Date.now() + 5 * 1000);
     checkOffset('10 seconds'.before(d), d, -10 * 1000);
