@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "Moment.js durations made easier, ActiveSupport-style.",
   "scripts": {
-    "test": "make test-coveralls"
+    "test": "make test",
+    "blanket": {
+      "pattern": "lib",
+      "data-cover-never": "node_modules"
+    }
   },
   "repository": {
     "type": "git",
@@ -16,7 +20,8 @@
     "mocha": ">= 1.11.0",
     "sinon": ">= 1.5.2",
     "coveralls": "~2.3.0",
-    "mocha-lcov-reporter": "0.0.1"
+    "mocha-lcov-reporter": "0.0.1",
+    "blanket": "~1.1.5"
   },
   "keywords": [
     "date",

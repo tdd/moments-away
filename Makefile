@@ -1,18 +1,13 @@
 REPORTER=spec
 
 test:
-	@NODE_ENV=test ./node_modules/.bin/mocha -R $(REPORTER)
+	@NODE_ENV=test ./node_modules/.bin/mocha -b --require blanket -R $(REPORTER)
 
-lib-cov:
-	jscoverage lib lib-cov
+test-cov: test
+	$(MAKE) test REPORTER=html-cov > coverage.html
 
-test-cov: lib-cov
-	@MOMENTS_AWAY_COVERAGE=1 $(MAKE) test REPORTER=html-cov > coverage.html
-	rm -fr lib-cov
-
-test-coveralls: lib-cov
-	@echo TRAVIS_JOB_ID $(TRAVIS_JOB_ID)
-	@MOMENTS_AWAY_COVERAGE=1 $(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
+test-coveralls: test
+	$(MAKE) test REPORTER=mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js
 	rm -fr lib-cov
 
 .PHONY: test
