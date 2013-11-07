@@ -2,9 +2,6 @@ moments-away
 ============
 
 [![Build Status](https://travis-ci.org/tdd/moments-away.png?branch=master)](https://travis-ci.org/tdd/moments-away)
-<span style="display:none">
-[![Coverage Status](https://coveralls.io/repos/tdd/moments-away/badge.png)](https://coveralls.io/r/tdd/moments-away)
-</span>
 [![Code Climate](https://codeclimate.com/github/tdd/moments-away.png)](https://codeclimate.com/github/tdd/moments-away)
 [![Dependency Status](https://gemnasium.com/tdd/moments-away.png)](https://gemnasium.com/tdd/moments-away)
 
@@ -141,3 +138,5 @@ To-do
 
 * GitHub release (update package.json, tag as 0.1.0) & Formal announcement
 * JS Test Coverage report (Coveralls suffers bugs just now, so wait for them to get back on their feet)
+
+[![Coverage Status](https://coveralls.io/repos/tdd/moments-away/badge.png)](https://coveralls.io/r/tdd/moments-away)
