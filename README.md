@@ -74,7 +74,7 @@ Perhaps you favor TJ's [Component](http://component.io/)?  Not a problem:
 component install tdd/moments-away
 ```
 
-Otherwise you can just pick up the [library source file](https://raw.github.com/tdd/moments-away/master/moments-away.js) (only 1.7KB uncompressed).
+Otherwise you can just pick up the [library source file](https://raw.github.com/tdd/moments-away/master/lib/index.js) (only 1.7KB uncompressed).
 
 ZOMG! :scream: You're extending native prototypes!
 ==================================================
