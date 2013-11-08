@@ -2,7 +2,7 @@ moments-away
 ============
 
 [![Build Status](https://travis-ci.org/tdd/moments-away.png?branch=master)](https://travis-ci.org/tdd/moments-away)
-[![Coverage Status](https://s3.amazonaws.com/assets.coveralls.io/badges/coveralls_100.png)](https://coveralls.io/r/tdd/moments-away)
+[![Coverage Status](https://coveralls.io/repos/tdd/moments-away/badge.png?branch=master)](https://coveralls.io/r/tdd/moments-away?branch=master)
 [![Code Climate](https://codeclimate.com/github/tdd/moments-away.png)](https://codeclimate.com/github/tdd/moments-away)
 [![Dependency Status](https://gemnasium.com/tdd/moments-away.png)](https://gemnasium.com/tdd/moments-away)
 
